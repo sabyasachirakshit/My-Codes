@@ -1,0 +1,15 @@
+{
+    "python.formatting.provider": "autopep8",
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "python.pythonPath": "c:\\users\\home\\appdata\\local\\programs\\python\\python37-32\\python.exe",
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp"
+    },
+    "java.project.sourcePaths": [
+        "Re-Visiting",
+        ""
+    ]
+}
