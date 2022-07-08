@@ -1,0 +1,17 @@
+.link{
+    color:red;
+}
+
+.link:hover{
+    color: #00ff00;
+}
+
+#my_button{
+    cursor: pointer;
+    color: red;
+}
+
+#my_button:hover{
+    color: aqua;
+    background-color: black;
+}

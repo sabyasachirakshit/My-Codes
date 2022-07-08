@@ -1,0 +1,2 @@
+Create Virtual Environment Command-> python -m venv "your project name"
+Activating Cirtual mEnvironment Command-> "your project name"\Scripts\activate.bat

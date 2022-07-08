@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(236, 165, 83);
+        }
+
+
+        .heading_container {
+            position: relative;
+            top: 76px;
+            left: 562px;
+        }
+
+        .first_value {
+            position: relative;
+            top: 122px;
+            left: 211px;
+        }
+
+        .second_value {
+            position: relative;
+            top: 100px;
+            left: 744px;
+        }
+
+        #add {
+            background-color: aquamarine;
+            position: relative;
+            top: 116px;
+            left: 447px;
+        }
+
+        #sub {
+            background-color: chartreuse;
+            position: relative;
+            top: 116px;
+            left: 463px;
+        }
+
+        #mul {
+            color: wheat;
+            background-color: crimson;
+            position: relative;
+            top: 116px;
+            left: 479px;
+        }
+
+        #div {
+            color: white;
+            background-color: darkslateblue;
+            position: relative;
+            top: 116px;
+            left: 495px;
+        }
+
+        #rem {
+            background-color: hotpink;
+            position: relative;
+            top: 116px;
+            left: 511px;
+        }
+
+        .res {
+            position: relative;
+            top: 192px;
+            left: 528px;
+        }
+
+        .area {
+            position: relative;
+            top: 166px;
+            left: 597px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="heading_container">
+        <h1>Calculator</h1>
+    </div>
+
+    <div class="first_value">
+        <b>Enter first number:</b> <input type="text" id="n1">
+    </div>
+
+    <div class="second_value">
+        <b>Enter second number:</b> <input type="text" id="n2">
+    </div>
+
+
+
+    <button id="add">Addition</button>
+    <button id="sub">Substraction</button>
+    <button id="mul">Multiplication</button>
+    <button id="div">Division</button>
+    <button id="rem">Remainder</button>
+
+    <div class="res">
+        <b>RESULT:</b>
+    </div>
+    <div class="area">
+        <textarea cols="10" rows="1" id="res_box" style="width: 167px; height: 33px;"></textarea>
+    </div>
+
+    <script>
+        const button1 = document.getElementById("add");
+        const button2 = document.getElementById("sub");
+        const button3 = document.getElementById("mul");
+        const button4 = document.getElementById("div");
+        const button5 = document.getElementById("rem");
+
+        function show(X) {
+            console.log("show function called");
+            document.getElementById("res_box").innerHTML = X;
+        }
+
+        function calculate(add, sub, mul, div, callback) {
+            let number1 = Number(document.getElementById("n1").value);
+            let number2 = Number(document.getElementById("n2").value);
+
+            var addition = number1 + number2;
+            var substraction = number1 - number2;
+            var multiplication = number1 * number2;
+            var division = number1 / number2;
+            if (add == true) {
+                if (callback && typeof callback == "function") {
+                    callback(addition);
+                }
+            } else if (sub == true) {
+                if (callback && typeof callback == "function") {
+                    callback(substraction);
+                }
+            } else if (mul == true) {
+                if (callback && typeof callback == "function") {
+                    callback(multiplication);
+                }
+            } else if (div == true) {
+                if (callback && typeof callback == "function") {
+                    callback(division);
+                }
+            }
+        }
+
+        button1.addEventListener("click", function () {
+            calculate(true, false, false, false, function (res) {
+                show(res);
+            });
+        });
+        button2.addEventListener("click", function () {
+            calculate(false, true, false, false, function (res) {
+                show(res);
+            });
+        });
+        button3.addEventListener("click", function () {
+            calculate(false, false, true, false, function (res) {
+                show(res);
+            });
+        });
+        button4.addEventListener("click", function () {
+            calculate(false, false, false, true, function (res) {
+                show(res);
+            });
+        });
+
+    </script>
+</body>
+
+
+</html>

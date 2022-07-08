@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head> 
+        <meta charset="UTF-8">
+        <title>Showing All Numbers</title>
+    </head>
+    <body> 
+        <h1>You wanted to check: {{ which_number }}</h1>
+        <strong>The numbers between {{ min_range }} and {{ max_range }} are given below:</strong>
+        <ul>
+            {% for for_loop_iterator in list %}
+                <li>{{ for_loop_iterator }}</li>
+            {% endfor %}
+        </ul> 
+    </body>
+</html>

@@ -1,0 +1,45 @@
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circle {
+    position: absolute;
+    z-index: 0;
+
+    height: 200px;
+    width: 200px;
+    background-color: rgb(48, 179, 70);
+    border-radius: 50%;
+    border:0.1rem solid black;
+}
+.triangle{
+    margin-top: 200px;
+    position: absolute;
+    z-index: 1;
+
+    height: 0;
+    width:0;
+    border-bottom: 200px solid rgb(11, 19, 117);
+    border-right: 100px solid transparent ;
+    border-left: 100px solid transparent ;
+    
+    /* border-right: 100px solid blue ;
+    border-left: 100px solid yellow ;
+    border-top: 100px solid red transparent; */
+}
+.rectangle{
+    position: absolute;
+    z-index: 2;
+
+    margin-top: 100px;
+    margin-left: 350px;
+    height: 100px;
+    width: 300px;
+    background-color: rgb(242, 33, 33);
+
+    border:0.1rem solid black;
+    border-radius: 1rem;
+}
+  

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static "Css/bootstrap.min.css" %}">
+
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <h1>Login Page</h1>
+    <form action="/check_if_user_exists" method='post' > {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Enter Username:</label>
+          <textarea class="form-control" name='username' id="exampleFormControlTextarea1" rows="1"></textarea>
+      
+          <label for="exampleFormControlTextarea2">Enter Password:</label>
+          <textarea class="form-control" name='password' id="exampleFormControlTextarea2" rows="1"></textarea>
+          <br>
+          <button type="submit" id="my_button2" class="btn btn-dark">
+                <style>
+                    #my_button2:hover{
+                        background-color:green;
+                        color:black;
+                    }
+                </style>
+                Log In
+           </button>
+        </div>
+    </form>
+    <script>
+      function Register()
+      {
+          window.location.href="register_user";
+      }
+      </script>
+     <br>
+     <button  id="my_button" class="btn btn-dark" onclick="Register()">
+      <style>
+          #my_button:hover{
+              background-color:red;
+              color:black;
+          }
+      </style>
+      Register
+     </button>
+
+    
+  </body>
+</html>
+
+

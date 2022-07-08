@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        function show(X) {
+            document.getElementById("demo").innerHTML = X;
+        }
+        {/* Using a callback, call the calculator function (myCalculator)
+and let the calculator function run the callback after the calculation is
+finished */}
+        function myCalculator(a, b, callBackResults) { /*Complete calculator function and run the
+callback */
+            var add_results = a + b;
+            var sub_results = a - b;
+            var mul_results = a * b;
+            var div_results = a / b;
+
+            var results = {
+                addition: add_results,
+                substraction: sub_results,
+                multiplication: mul_results,
+                division: div_results,
+            };
+
+            if (callBackResults && typeof (callBackResults) == 'function') {
+                callBackResults(results);
+            }
+        }
+        myCalculator(10, 2);
+        myCalculator(10, 2, function (res) {
+            console.log(res.addition);
+            show(res.addition);
+        })
+    </script>
+</body>
+
+</html>

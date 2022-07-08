@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/button.css" %}">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Question</h1>
+    <div class="form">
+      <form method="POST"> 
+        {% csrf_token %}
+        <input type="radio" class="btn-check" name="option1-outlined" id="dark-outlined" autocomplete="on" value="option1">
+        <label class="btn btn-outline-dark" id="dark-outlined" for="dark-outlined">Option A</label>
+
+        <input type="radio" class="btn-check" name="option2-outlined" id="dark2-outlined" autocomplete="on">
+        <label class="btn btn-outline-dark" id="dark2-outlined" for="dark2-outlined">Option B</label>
+      </form>
+    </div>
+    <h1>{{ var1 }}</h1>
+    <h1>{{ var2 }}</h1>
+    <script src="{% static "Javascript/bootstrap.min.js" %}"></script>
+
+  </body>
+</html>

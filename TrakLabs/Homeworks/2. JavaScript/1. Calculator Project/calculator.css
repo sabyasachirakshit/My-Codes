@@ -1,0 +1,174 @@
+ body{
+     margin: 0;
+     padding: 0;
+ }
+
+ .calculator-box{
+    border: 9px solid white;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    left: 620px;
+    top: 155px;
+    background-color: #b4c6c4;
+ }
+
+ #lcd-screen{
+    background-color: #96bf96;
+    resize: none;
+    position: relative;
+    left: 658px;
+    top: -233px;
+    height: 53px;
+    width: 342px;
+    font-size: 45px;
+ }
+
+ #key-nine{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 671px;
+    top: -200px;
+ }
+
+ #key-eight{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 704px;
+    top: -200px;
+ }
+
+ #key-seven{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 741px;
+    top: -200px;
+ }
+
+ #key-six{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 491px;
+    top: -120px;
+ }
+
+ #key-five{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 524px;
+    top: -120px;
+ }
+
+ #key-four{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 560px;
+    top: -120px;
+ }
+
+ #key-three{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 311px;
+    top: -39px;
+ }
+
+ #key-two{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 344px;
+    top: -39px;
+ }
+
+ #key-one{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 379px;
+    top: -39px;
+ }
+
+ #key-zero{
+    background-color: #e15c5c;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 223px;
+    top: 30px;
+ }
+
+ #key-div{
+    background-color: aqua;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 166px;
+    top: -200px;
+ }
+
+ #key-mul{
+    background-color: aqua;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 229px;
+    top: -120px;
+ }
+
+ #key-sub{
+    background-color: aqua;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 289px;
+    top: -39px;
+ }
+
+ #key-add{
+    background-color: aqua;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 351px;
+    top: 30px;
+ }
+ 
+ #key-all-clear{
+    color: white;
+    background-color: black;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: 18px;
+    top: 30px;
+ }
+
+ #key-result{
+    background-color: green;
+    height: 50px;
+    width: 57px;
+    position: relative;
+    left: -232px;
+    top: 30px;
+ }
+
+ body{
+    background-image: url('math.webp');
+ }

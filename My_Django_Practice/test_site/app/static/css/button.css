@@ -1,0 +1,24 @@
+#dark-outlined{
+    background-color:black;
+    color:white;
+} 
+#dark-outlined:hover{
+    background-color: purple;
+}
+
+#dark-outlined:focus+label{
+    background-color: yellow;
+    color:black;
+}
+ 
+#dark2-outlined{
+    background-color: black;
+    color:white;
+}
+#dark2-outlined:hover{
+    background-color: purple;
+}
+#dark2-outlined:focus+label{
+    background-color: yellow;
+    color:black;
+}

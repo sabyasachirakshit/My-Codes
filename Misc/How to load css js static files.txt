@@ -1,0 +1,53 @@
+Step 1: Create App using startapp
+Step 2: Create urls.py in app directory
+Step 3: Import these in urls.py of app directory ->
+
+from django.contrib import admin
+from django.urls import path
+from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
+app_name="appname" 
+
+For laptop use app_name="appname" at the end of file
+
+Import the following in urls.py of project directory->
+
+from django.contrib import admin
+from django.urls import path,include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
+Add these inside the urlpatterns of urls.py of project directory->
+
+path('',include('appname.urls',namespace="appname")),
+
+
+Add these code in the last line of urls.py of project directory:
+
+urlpatterns += staticfiles_urlpatterns()
+
+[Now you can root all urls in the url file of app directory]
+ 
+Step 4: Add these line at the end of settings file: STATIC_FILES_DIRS=[os.path.join(BASE_DIR,"static"),]
+
+Step 5: Create a folder named "static" and put it under app directory. And under this, create 2 folders named css and javascript. Keep respective css and js files under respective folders.
+
+Step 6: Create a folder named "Templates" where html files are added.
+
+Step 7: Link Template folder in settings file 'DIRS': [os.path.join(BASE_DIR,"Templates")],
+
+Step 8: Load css files using static inside head tag in html file 
+
+{% load static %}
+    <link rel="stylesheet" href="{% static "css/filename.css" %}">
+
+Load javascript files ->
+
+<script src="{% static "Javascript/filename.js" %}"></script>
+
+
+
+
+
