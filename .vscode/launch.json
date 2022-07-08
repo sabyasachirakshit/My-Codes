@@ -1,29 +1,36 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Launch Extract_odd_pos_java",
-            "request": "launch",
-            "mainClass": "Extract_odd_pos_java",
-            "projectName": "My Codes_2ce3e4ec"
-        },
-        {
-            "type": "java",
-            "name": "Launch Palindrome_java",
-            "request": "launch",
-            "mainClass": "Palindrome_java",
-            "projectName": "My Codes_2ce3e4ec"
-        },
-        {
-            "type": "java",
-            "name": "Launch String_Reversal_java",
-            "request": "launch",
-            "mainClass": "String_Reversal_java",
-            "projectName": "My Codes_2ce3e4ec"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch ArmstrongNumber",
+      "request": "launch",
+      "mainClass": "Java.ArmstrongNumber",
+      "projectName": "My Codes_31a7f6a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Extract_odd_pos_java",
+      "request": "launch",
+      "mainClass": "Extract_odd_pos_java",
+      "projectName": "My Codes_2ce3e4ec"
+    },
+    {
+      "type": "java",
+      "name": "Launch Palindrome_java",
+      "request": "launch",
+      "mainClass": "Palindrome_java",
+      "projectName": "My Codes_2ce3e4ec"
+    },
+    {
+      "type": "java",
+      "name": "Launch String_Reversal_java",
+      "request": "launch",
+      "mainClass": "String_Reversal_java",
+      "projectName": "My Codes_2ce3e4ec"
+    }
+  ]
 }
