@@ -1,0 +1,3 @@
+from django.http import HttpResponse
+def index(response):
+    return HttpResponse('''<h1>Eminem Best Music Playlist</h1> <a href="https://www.youtube.com/watch?v=XbGs_qK2PQA&list=RDXbGs_qK2PQA&start_radio=1"> 1.Rap God Explicit </a> <a href="https://www.youtube.com/watch?v=_Yhyp-_hX2s"> <br>2.Lose Yourself </a> <a href="https://www.youtube.com/watch?v=qJOJO_EoqfE"> <br>3.8 Miles Ending Rap Battles </a> <a href="https://www.youtube.com/watch?v=S9bCLPwzSC0"> <br>4.Mocking Bird </a> <a href="https://www.youtube.com/watch?v=MfTbHITdhEI"> <br> 5.Fall </a>''')

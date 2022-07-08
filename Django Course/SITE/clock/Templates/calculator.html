@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width,initial_scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static "css/calculator.css" %}">
+        <title>Calculator</title>
+    </head>
+<body>
+    <div class="box">
+        <div class="display"><input type="text" readonly size="18" id="d"></div>
+        <div class="keys">
+            <p><input type="button" class="button gray" value="mrc" onclick='c("Created....................")'>
+                <input type="button" class="button gray" value="m-" onclick='c("...............by............")'>
+                <input type="button" class="button gray" value="m+" onclick='c("..............Sabyasachi")'>
+                <input type="button" class="button pink" value="/" onclick='v("/")'>
+            </p>
+            <p><input type="button" class="button white" value="7" onclick='v("7")'><input type="button"
+                    class="button white" value="8" onclick='v("8")'>
+                <input type="button" class="button white" value="9" onclick='v("9")'><input type="button"
+                    class="button pink" value="*" onclick='v("*")'>
+            </p>
+            <p><input type="button" class="button white" value="4" onclick='v("4")'><input type="button"
+                    class="button white" value="5" onclick='v("5")'>
+                <input type="button" class="button white" value="6" onclick='v("6")'><input type="button"
+                    class="button pink" value="-" onclick='v("-")'>
+            </p>
+            <p><input type="button" class="button white" value="1" onclick='v("1")'><input type="button"
+                    class="button white" value="2" onclick='v("2")'>
+                <input type="button" class="button white" value="3" onclick='v("3")'><input type="button"
+                    class="button pink" value="+" onclick='v("+")'>
+            </p>
+            <p><input type="button" class="button white" value="0" onclick='v("0")'><input type="button"
+                    class="button white" value="." onclick='v(".")'>
+                <input type="button" class="button white" value="C" onclick='c("")'><input type="button"
+                    class="button orange" value="=" onclick='e()'>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function c(val) {
+            document.getElementById("d").value = val;
+        }
+        function v(val) {
+            document.getElementById("d").value += val;
+        }
+        function e() {
+            try {
+                c(eval(document.getElementById("d").value))
+            }
+            catch (e) {
+                c('Error')
+            }
+        }
+    </script>
+</body>
+
+</html>
