@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .progress {
+            background-color: red;
+            height: 3px;
+            animation: animator 1s ease-in-out 1;
+        }
+
+        header {
+            height: 122px;
+            background-color: black;
+        }
+
+        main {
+            height: 899px;
+            background-color: blue;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+        }
+
+        @keyframes animator {
+            0% {
+                width: 0;
+            }
+
+            50% {
+                width: 90vw;
+            }
+
+            100% {
+                width: 100vw;
+            }
+        }
+
+        @keyframes rotator {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes slide {
+
+            0% {
+                transform: translate(-8vw);
+            }
+
+            100% {
+                transform: translate(85vw);
+            }
+
+        }
+
+        @keyframes slide2 {
+
+            0% {
+                transform: translate(0vw);
+            }
+
+            100% {
+                transform: translate(92vw);
+            }
+
+        }
+
+        .slider {
+            background-color: antiquewhite;
+            height: 523px;
+            overflow: hidden;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img1 {
+            transform: translate(-8vw);
+        }
+
+        .img2 {
+            transform: translate(0vw);
+        }
+
+        .img3 {
+            transform: translate(8vw);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress">
+
+    </div>
+    <header></header>
+    <main>
+        <!-- <img src="passport.PNG" alt=""> -->
+        <div class="slider">
+            <img class="img1" src="Desert.jpg" alt="">
+            <img class="img2" src="Hydrangeas.jpg" alt="">
+            <img class="img3" src="Jellyfish.jpg" alt="">
+        </div>
+    </main>
+</body>
+
+</html>

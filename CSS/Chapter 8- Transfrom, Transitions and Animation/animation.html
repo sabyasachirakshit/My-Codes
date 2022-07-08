@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Page</title>
+    <style>
+        .container {
+            height: 100vh;
+            width: 100vw;
+            background-color: aqua;
+        }
+
+        .box {
+            height: 300px;
+            width: 300px;
+            background-color: red;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* animation-name: animator;
+            animation-duration: 5s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 1s;
+            animation-iteration-count: 3;
+            animation-direction: alternate-reverse; */
+
+
+            animation: animator2 5s ease-in-out 1s 4 alternate-reverse;
+        }
+
+        @keyframes animator {
+            from {
+                width: 300px;
+                height: 300px;
+            }
+
+            to {
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+
+        @keyframes animator2 {
+            0% {
+                width: 300px;
+                height: 300px;
+            }
+
+            20% {
+                width: 700px;
+                height: 700px;
+            }
+
+            100% {
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box">This is me</div>
+
+    </div>
+</body>
+
+</html>

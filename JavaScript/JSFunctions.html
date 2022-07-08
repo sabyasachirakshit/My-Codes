@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <script>
+            function msg(){
+                alert("Hi, this is JS Functions!");
+            }
+            function get_cube(number){
+                var cub=number*number*number
+                alert("Cube of "+number+" is: "+cub);
+            }
+            function get_info(){
+                return "Hello, This is return JS Function";
+            }
+            document.write(get_info());
+        </script>
+        <input type="button" onclick="msg()" value="Click Here">
+        <input type="button" value="Get Cube of number 5" onclick="get_cube(5)">
+
+        <script>
+            var add=new Function("num1","num2","return num1+num2");
+            document.write(add(5,7));
+            var pow=new Function("a","b","return Math.pow(a,b)");
+            document.writeln("  "+pow(5,7));
+        </script>
+    </body>
+</html>

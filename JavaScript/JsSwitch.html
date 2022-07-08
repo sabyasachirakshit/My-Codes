@@ -1,0 +1,45 @@
+<html>
+    <body>
+        <script>
+            var number1=window.prompt("Enter number1: ");
+            var number2=window.prompt("Enter number2: ");
+            var operator=window.prompt("Enter operator(+,-,*,/,%): ");
+            number1=parseInt(number1);
+            number2=parseInt(number2);
+            var res;
+            switch(operator)
+            {
+                case '+':res=number1+number2;
+                         window.alert("The result is: "+res);
+                         break;
+                case '-':res=number1-number2;
+                         window.alert("The result is: "+res);
+                         break;
+                case '*':res=number1*number2;
+                         window.alert("The result is: "+res);
+                         break;
+                case '/':if(number2==0)
+                          {
+                              window.alert("Cannot divide by zero!");
+                              break;
+                          }
+                          else{
+                              res=number1/number2;
+                              window.alert("The result is: "+res);
+                              break;
+                          }
+                case '%':if(number2==0)
+                          {
+                              window.alert("Cannot divide by zero!");
+                              break;
+                          }
+                          else{
+                              res=number1%number2;
+                              window.alert("The result is: "+res);
+                              break;
+                          }
+                default:window.alert("Wrong Operator!");
+            }
+        </script>
+    </body>
+</html>
