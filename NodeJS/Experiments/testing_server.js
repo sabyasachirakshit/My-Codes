@@ -5,9 +5,17 @@ const hostname = "127.0.0.1";
 const port = 8080;
 
 const server = http.createServer((request, response) => {
-  console.log(request.body);
-  response.setHeader("Content-Type", "text/html");
-  response.end(htmlContent);
+  if (request.url == "/") {
+    console.log(request.url);
+    response.setHeader("Content-Type", "text/html");
+    response.end(htmlContent);
+  } else if (request.url == "/calc.css") {
+    response.writeHead(200, { "Content-type": "text/css" });
+    var fileContents = fs.readFileSync("calc.css", {
+      encoding: "utf8",
+    });
+    response.end(fileContents); //CSS & HTML Loading but JS not working and webpage keeps loading!
+  }
 });
 
 server.listen(port, hostname, () => {
