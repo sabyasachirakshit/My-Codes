@@ -1,3 +1,48 @@
-*{
-    background-color: red;
+* {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: black;
+  padding: 12px;
+}
+body::before {
+  opacity: 0.5;
+  height: 100%;
+  content: "";
+  z-index: -1;
+  width: 100%;
+  top: 0px;
+  position: absolute;
+  background: url("/static/gym.jpeg") no-repeat center;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+}
+li {
+  list-style: none;
+  padding: 3px 17px;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+h2 {
+  text-align: center;
+}
+.container {
+  margin: 35px 0px;
+  color: white;
+}
+input,
+textarea {
+  display: block;
+  padding: 3px;
+  margin: 15px auto;
+  width: 60%;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 5px;
 }
