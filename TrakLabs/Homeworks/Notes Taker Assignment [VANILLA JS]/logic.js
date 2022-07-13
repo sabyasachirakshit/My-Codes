@@ -1,5 +1,4 @@
-console.log("JS linked!");
-
+//Function to display notes under div 'notes-content' DOM
 function showNotes() {
   let notes_title = [];
   let notes_desc = [];
@@ -35,7 +34,7 @@ function showNotes() {
     document.getElementById("notes-content").innerHTML = htmlContent;
   }
 }
-
+//Function to search notes by title or description [CASE INSENSITIVE MODE IS ON]
 document.getElementById("searchBar").addEventListener("input", () => {
   let searchVal = document.getElementById("searchBar").value;
   let notes_title = [];
@@ -83,6 +82,7 @@ document.getElementById("searchBar").addEventListener("input", () => {
     }
   });
 });
+//Function to fetch the data(title and description) from the UI
 function addingProcess() {
   let title = document.getElementById("titleArea").value;
   let desc = document.getElementById("descriptionArea").value;
@@ -92,6 +92,7 @@ function addingProcess() {
     addNote(title, desc);
   }
 }
+//Function to clear all the notes from the local storage
 function clearingProcess() {
   let notes_title = [];
   let notes_desc = [];
@@ -130,6 +131,7 @@ document
   .getElementById("clearAllNotes")
   .addEventListener("click", clearingProcess);
 document.getElementById("addBtn").addEventListener("click", addingProcess);
+//Function to edit a note by using their respective index
 function editNote(index) {
   document.getElementById("submissionArea").innerHTML = `
                 <h1>Take Notes</h1>
@@ -150,6 +152,7 @@ function editNote(index) {
                 <button id="addBtn" class="btn btn-warning" onClick=modifyNote(${index})>Modify Note</button>
                 `;
 }
+//To reset the DOM after modifying a note
 function resetContent() {
   document.getElementById("submissionArea").innerHTML = `<h1>Take Notes</h1>
     <form>
@@ -168,7 +171,7 @@ function resetContent() {
     `;
   showNotes();
 }
-
+//Function to modify a note
 function modifyNote(index) {
   let notes_title = [];
   let notes_desc = [];
@@ -187,16 +190,20 @@ function modifyNote(index) {
     notes_date = JSON.parse(notesDate);
   }
 
-  notes_title[index] = document.getElementById("titleArea").value;
-  notes_desc[index] = document.getElementById("descriptionArea").value;
-  let current_date = new Date();
-  notes_date[index] = current_date.toDateString();
-  localStorage.setItem("notesTitle", JSON.stringify(notes_title));
-  localStorage.setItem("notesDescription", JSON.stringify(notes_desc));
-  localStorage.setItem("notesDate", JSON.stringify(notes_date));
-  resetContent();
+  if (document.getElementById("titleArea").value == "") {
+    alert("Please add some title first!");
+  } else {
+    notes_title[index] = document.getElementById("titleArea").value;
+    notes_desc[index] = document.getElementById("descriptionArea").value;
+    let current_date = new Date();
+    notes_date[index] = current_date.toDateString();
+    localStorage.setItem("notesTitle", JSON.stringify(notes_title));
+    localStorage.setItem("notesDescription", JSON.stringify(notes_desc));
+    localStorage.setItem("notesDate", JSON.stringify(notes_date));
+    resetContent();
+  }
 }
-
+//Function to delete a note
 function deleteNote(index) {
   let notes_title = [];
   let notes_desc = [];
@@ -222,7 +229,7 @@ function deleteNote(index) {
   localStorage.setItem("notesDate", JSON.stringify(notes_date));
   showNotes();
 }
-
+//Function to add a note
 function addNote(title, desc) {
   let notes_title = [];
   let notes_desc = [];
@@ -251,4 +258,6 @@ function addNote(title, desc) {
   document.getElementById("descriptionArea").value = "";
   showNotes();
 }
-showNotes();
+showNotes(); //Calling showNotes to display any notes available as soon as user enters website
+
+//End of the program.
