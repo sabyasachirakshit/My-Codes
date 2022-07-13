@@ -92,7 +92,43 @@ function addingProcess() {
     addNote(title, desc);
   }
 }
-
+function clearingProcess() {
+  let notes_title = [];
+  let notes_desc = [];
+  let notes_date = [];
+  let notesDate = localStorage.getItem("notesDate");
+  let notesTitle = localStorage.getItem("notesTitle");
+  let notesDescription = localStorage.getItem("notesDescription");
+  if (notesTitle) {
+    notes_title = JSON.parse(notesTitle);
+  }
+  if (notesDescription) {
+    notes_desc = JSON.parse(notesDescription);
+  }
+  if (notesDate) {
+    notes_date = JSON.parse(notesDate);
+  }
+  if (notes_title.length == 0) {
+    window.alert("No Notes to Delete");
+  } else {
+    if (
+      window.confirm("Are you sure you really want to clear all the notes?")
+    ) {
+      while (notes_title.length != 0) {
+        notes_title.pop();
+        notes_desc.pop();
+        notes_date.pop();
+      }
+      localStorage.setItem("notesTitle", JSON.stringify(notes_title));
+      localStorage.setItem("notesDescription", JSON.stringify(notes_desc));
+      localStorage.setItem("notesDate", JSON.stringify(notes_date));
+    }
+    showNotes();
+  }
+}
+document
+  .getElementById("clearAllNotes")
+  .addEventListener("click", clearingProcess);
 document.getElementById("addBtn").addEventListener("click", addingProcess);
 function editNote(index) {
   document.getElementById("submissionArea").innerHTML = `
@@ -102,7 +138,7 @@ function editNote(index) {
                         <label for="exampleFormControlInput1">Edit Title of Note#${
                           index + 1
                         }</label>
-                            <input type="text" class="form-control" id="titleArea" placeholder="Enter Title of your note" />
+                            <input type="text" class="form-control" id="titleArea" placeholder="Enter Title of your note" autocomplete="off" />
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Enter Description of Note#${
@@ -119,7 +155,7 @@ function resetContent() {
     <form>
       <div class="form-group">
         <label for="exampleFormControlInput1">Enter Title</label>
-        <input type="text" class="form-control" id="titleArea" placeholder="Enter Title of your note" />
+        <input type="text" class="form-control" id="titleArea" placeholder="Enter Title of your note" autocomplete="off" />
       </div>
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Enter Description</label>
@@ -127,7 +163,8 @@ function resetContent() {
           placeholder="Enter Description of your note"></textarea>
       </div>
     </form>
-    <button id="addBtn" class="btn btn-primary" onClick='addingProcess()'>Add Note</button>
+    <button id="addBtn" class="btn btn-primary mx-2" onClick='addingProcess()'>Add Note</button>
+    <button id="clearAllNotes" class="btn btn-danger" onClick='clearingProcess()'>Clear All Notes</button>
     `;
   showNotes();
 }
