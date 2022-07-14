@@ -22,14 +22,14 @@ function showNotes() {
     htmlContent = "";
     for (let i = 0; i < notes_title.length; i++) {
       htmlContent += `<div class="card mx-3 my-3" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body scroll">
                             <h5 class="card-title">${notes_title[i]}</h5>
-                            <p class="card-text">${notes_desc[i]}</p>
-          <button class="btn btn-primary mx-3" onClick=editNote(${i})>Edit Note</button>
-          <button class="btn btn-danger" onClick=deleteNote(${i})>Delete Note</button>
-          <p>Added on ${notes_date[i]}</p>
-        </div>
-      </div>`;
+                            <p class="card-text">${notes_desc[i]}</p>             
+                              <button class="btn btn-primary mx-2" onClick=editNote(${i})>Edit Note</button>
+                              <button class="btn btn-danger" onClick=deleteNote(${i})>Delete Note</button>                     
+                            <p>Added on ${notes_date[i]}</p>
+                        </div>
+                      </div>`;
     }
     document.getElementById("notes-content").innerHTML = htmlContent;
   }
@@ -58,19 +58,16 @@ document.getElementById("searchBar").addEventListener("input", () => {
   let htmlContent = ``;
   let flag = false;
   notes_title.forEach((element, index) => {
-    if (
-      element.toUpperCase().includes(searchVal.toUpperCase()) ||
-      notes_desc[index].toUpperCase().includes(searchVal.toUpperCase())
-    ) {
+    if (element.toUpperCase().includes(searchVal.toUpperCase())) {
       htmlContent += `<div class="card mx-3 my-3" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body scroll">
                             <h5 class="card-title">${element}</h5>
                             <p class="card-text">${notes_desc[index]}</p>
-          <button class="btn btn-primary mx-3" onClick=editNote(${index})>Edit Note</button>
-          <button class="btn btn-danger" onClick=deleteNote(${index})>Delete Note</button>
-          <p>Added on ${notes_date[index]}</p>
-        </div>
-      </div>`;
+                              <button class="btn btn-primary mx-2" onClick=editNote(${index})>Edit Note</button>
+                              <button class="btn btn-danger" onClick=deleteNote(${index})>Delete Note</button>
+                            <p>Added on ${notes_date[index]}</p>
+                        </div>
+                      </div>`;
       flag = true;
     }
     if (flag == false) {
