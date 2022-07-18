@@ -19,14 +19,12 @@ class BinarySearchTree {
     if (newNode.data < node.data) {
       if (node.left == null) {
         node.left = newNode;
-        console.log(node.data + "-->");
       } else {
         this.insertNode(node.left, newNode);
       }
     } else {
       if (node.right == null) {
         node.right = newNode;
-        console.log(node.data + "-->");
       } else {
         this.insertNode(node.right, newNode);
       }
@@ -111,17 +109,31 @@ class BinarySearchTree {
     else return node;
   }
 }
-var allNodes = [];
+var allNodes = window
+  .prompt("Enter nodes inside tree seperated by commas")
+  .split(",");
 var BST = new BinarySearchTree();
-document.getElementById("nodeBtn").addEventListener("click", () => {
-  var getNode = Number(document.getElementById("node").value);
-  allNodes.push(getNode);
-  document.getElementById("node").value = "";
+allNodes.forEach((element) => {
+  BST.insert(Number(element));
 });
-
-// BST.insert(1);
-// BST.insert(2);
-// BST.insert(3);
-// BST.insert(4);
-// BST.insert(5);
-// BST.insert(6);
+document.getElementById("inOrderTraversal").addEventListener("click", () => {
+  var root = BST.getRootNode();
+  console.log("IN ORDER TRAVERSAL OF BST -> ");
+  BST.inorder(root);
+});
+document.getElementById("preOrderTraversal").addEventListener("click", () => {
+  var root = BST.getRootNode();
+  console.log("PRE ORDER TRAVERSAL OF BST -> ");
+  BST.preorder(root);
+});
+document.getElementById("postOrderTraversal").addEventListener("click", () => {
+  var root = BST.getRootNode();
+  console.log("POST ORDER TRAVERSAL OF BST -> ");
+  BST.postorder(root);
+});
+document.getElementById("remNodeBtn").addEventListener("click", () => {
+  var nodeRemoval = Number(document.getElementById("removeNode").value);
+  BST.remove(nodeRemoval);
+  alert(`Node ${nodeRemoval} removed!`);
+  document.getElementById("removeNode").value = "";
+});
