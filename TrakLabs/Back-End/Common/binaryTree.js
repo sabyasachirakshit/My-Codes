@@ -103,8 +103,10 @@ class BinarySearchTree {
     return this.root;
   }
   search(node, data) {
-    if (node === null) return null;
-    else if (data < node.data) return this.search(node.left, data);
+    if (node === null) {
+      alert(`Node ${data} not present in BST`);
+      return null;
+    } else if (data < node.data) return this.search(node.left, data);
     else if (data > node.data) return this.search(node.right, data);
     else return node;
   }
@@ -134,6 +136,18 @@ document.getElementById("postOrderTraversal").addEventListener("click", () => {
 document.getElementById("remNodeBtn").addEventListener("click", () => {
   var nodeRemoval = Number(document.getElementById("removeNode").value);
   BST.remove(nodeRemoval);
-  alert(`Node ${nodeRemoval} removed!`);
+  alert(`Node ${nodeRemoval} removed from BST!`);
   document.getElementById("removeNode").value = "";
+});
+document.getElementById("addNodeBtn").addEventListener("click", () => {
+  var addNode = Number(document.getElementById("addNode").value);
+  BST.insert(addNode);
+  alert(`Node ${addNode} added to BST!`);
+  document.getElementById("addNode").value = "";
+});
+document.getElementById("searchNodeBtn").addEventListener("click", () => {
+  var root = BST.getRootNode();
+  var searchingNode = Number(document.getElementById("searchNode").value);
+  console.log(BST.search(root, searchingNode));
+  document.getElementById("searchNode").value = "";
 });
