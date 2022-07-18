@@ -29,6 +29,7 @@ class BinarySearchTree {
         this.insertNode(node.right, newNode);
       }
     }
+    return node;
   }
 
   insert(data) {
@@ -75,6 +76,7 @@ class BinarySearchTree {
   }
   remove(data) {
     this.root = this.removeNode(this.root, data);
+    return this.root;
   }
 
   inorder(node) {
@@ -109,6 +111,10 @@ class BinarySearchTree {
     } else if (data < node.data) return this.search(node.left, data);
     else if (data > node.data) return this.search(node.right, data);
     else return node;
+  }
+  modifyNode(node, data, newData) {
+    this.removeNode(node, data);
+    this.insert(newData);
   }
 }
 var allNodes = window
@@ -150,4 +156,11 @@ document.getElementById("searchNodeBtn").addEventListener("click", () => {
   var searchingNode = Number(document.getElementById("searchNode").value);
   console.log(BST.search(root, searchingNode));
   document.getElementById("searchNode").value = "";
+});
+document.getElementById("modifyNode").addEventListener("click", () => {
+  var root = BST.getRootNode();
+  let oldValue = Number(window.prompt("Which Node you want to update? "));
+  let newValue = Number(window.prompt("Enter Node Value:"));
+  BST.modifyNode(root, oldValue, newValue);
+  alert(`Node updated from ${oldValue} to ${newValue}`);
 });
