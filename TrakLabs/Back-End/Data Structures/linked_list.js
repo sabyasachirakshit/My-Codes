@@ -162,7 +162,7 @@ console.log(myLinkedList.searchNode(100));
 console.log("Previously Linked List was:");
 myLinkedList.showLinkedList();
 console.log(`Modifying Node with value '9' to '19'.. `);
-myLinkedList.modifyNode(9, 19, 4);
+console.log(myLinkedList.modifyNode(9, 19, 4));
 console.log("Linked List becomes: ");
 myLinkedList.showLinkedList();
 console.log(`Modifying Node that does not exists with value '29' to '19'.. `);
