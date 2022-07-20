@@ -78,7 +78,10 @@ class LinkedList {
     while (it < this.size) {
       if (current) {
         if (current.element == value)
-          return `Node with value ${current.element} present before ${current.next.element}`;
+          if (it + 1 == this.size)
+            return `Node with value ${current.element} present at the end of the list`;
+          else
+            return `Node with value ${current.element} present before ${current.next.element}`;
         else {
           current = current.next;
           it++;
