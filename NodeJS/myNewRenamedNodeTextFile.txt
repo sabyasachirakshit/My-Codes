@@ -1,0 +1,1 @@
+This text file was created from Node JS File System Core Module second timeAdding extra content from appendFileSync method..
