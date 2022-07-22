@@ -2,9 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 function ShowObjectives() {
   useEffect(() => {
-    const deleteObjective = (value) => {
-      console.log(value);
-    };
     const ShowAllObjectives = () => {
       let objectives = localStorage.getItem("Objectives");
       let allObjectives;
@@ -13,7 +10,7 @@ function ShowObjectives() {
       }
       let htmlContent = ``;
       if (allObjectives) {
-        allObjectives.forEach((myObjectives) => {
+        allObjectives.forEach((myObjectives, index) => {
           htmlContent += `<div class="container my-2">
             <div class="row" style="display:flex;">
               <div class="form-floating">
@@ -25,8 +22,7 @@ function ShowObjectives() {
                   style="width:50%; float: left"
                 ></textarea>
                 <label for="floatingTextarea">${myObjectives}</label>
-                <button class="btn btn-danger mx-2" onClick='${(myObjectives) =>
-                  deleteObjective(myObjectives)}' style="height: 55px">
+                <button class="btn btn-danger mx-2" id='${index}' style="height: 55px">
                   Delete Objective
                 </button>
               </div>
@@ -34,6 +30,15 @@ function ShowObjectives() {
           </div>`;
         });
         document.getElementById("showObjectivesinDOM").innerHTML = htmlContent;
+      }
+      if (allObjectives) {
+        allObjectives.forEach((value, index) => {
+          document.getElementById(`${index}`).addEventListener("click", () => {
+            allObjectives.splice(index, 1);
+            localStorage.setItem("Objectives", JSON.stringify(allObjectives));
+            ShowAllObjectives();
+          });
+        });
       }
     };
     ShowAllObjectives();
