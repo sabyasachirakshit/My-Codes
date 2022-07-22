@@ -11,7 +11,7 @@ Do everything in terminal only..
 */
 
 const fs = require("fs");
-
+fs.mkdirSync("CRUD Files");
 fs.writeFileSync("CRUD Files/node.txt", "Hello, I am node txt file");
 fs.appendFileSync("CRUD Files/node.txt", "Adding more existing data into it..");
 const data = fs.readFileSync("CRUD Files/node.txt", "utf-8");
@@ -20,3 +20,4 @@ fs.renameSync("CRUD Files/node.txt", "CRUD Files/bio.txt");
 console.log("File renamed successfully");
 fs.rmSync("CRUD Files/bio.txt");
 console.log("File was deleted successfully..");
+fs.rmdirSync("CRUD Files");
