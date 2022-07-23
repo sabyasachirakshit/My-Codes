@@ -1,0 +1,13 @@
+Hello, This is Dummy Text.
+This text will be read with the help of
+streaming in Node Js
+using Stream module.
+Let's see if it works.
+
+Hello, This is Dummy Text.
+This text will be read with the help of
+streaming in Node Js
+using Stream module.
+Let's see if it works.
+
+Streaming now....
