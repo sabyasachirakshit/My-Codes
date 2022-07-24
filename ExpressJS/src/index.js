@@ -15,7 +15,7 @@ const staticPath = path.join(__dirname, "../public");
 app.use(express.static(staticPath)); //has access to all html css js files now
 
 app.get("/", function (req, res) {
-  res.sendFile(path.join(staticPath, "/index.html"));
+  res.sendFile(path.join(staticPath, "/homepage.html"));
 });
 
 app.get("/about", function (req, res) {
