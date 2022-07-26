@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <title>hai this is guru</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <title>POST METHOD</title>
+    <style>
+        .align {
+            text-align: center;
+        }
+    </style>
+</head>
+<p> socket connection </p>
+
+
+<body>
+    <script src="socket.io.js"></script>
+
+    <button type="button" onclick="clickHandler()">send Sensors data</button>
+    <!-- <button onclick="fetch">SEND BODY</button> -->
+    <h1 class="align">JavaScreipt's Fetch api</h1>
+    <h2 class="align">POST method</h2>>
+    <textarea type="text" placeholder="IOT_SERVICE/" id="myUrl" style="height: 100px;"></textarea>
+    <textarea type="text" placeholder="Type something..." id="myBody" style="height: 300px;"></textarea>
+    <button type="button" onclick="getInputValue()">
+        send body
+    </button>
+    <script>
+
+        var socket = io('https://localhost:4000');
+
+        //FIRST ACTION hapens wheN the page opens firSt time , this is one time activity 
+        socket.on('connection', function (socket) {
+            console.log('socket has been connected');
+            console.log(socket)
+        });
+
+        //this iS a custom event regoistered at sErver side
+        socket.on('testerEvent', function (data) { document.write(data.description) });
+
+
+        //Thi seven Is caLled whEn  the server sends the data back to the client
+        socket.on('successResponseFromServer', function (data) {
+            //evalaute the requestGuid from the dictionary and then match and then show themessgae in console
+            console.log(data);
+            //for find you can use 'Filter' 
+            //remove the item from the dictionary /array
+        });
+
+        //this is the event which is called when the server register the socket id and sends back the socket id
+        socket.on('socketIdFromServer', function (data) {
+            console.log(data)
+            sessionStorage.setItem('socket_id', data.socket_id);
+        });
+        function getInputValue() {
+
+            // Selecting the input element and get its value 
+            var postUrl = document.getElementById("myUrl").value;
+            var postBody = document.getElementById("myBody").value;
+
+            console.log(postBody);
+            var str = JSON.parse(postBody);
+        
+            function uuidv4() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+
+            }
+
+            class Request {
+                constructor() {
+                    this.request_guid = '';
+                    this.socket_id = '';
+                }
+            }
+            var dict_to_store_all_requests = [];
+            var request = new Request();
+            request.socket_id = sessionStorage.getItem('socket_id');
+            request.request_guid = uuidv4();
+            dict_to_store_all_requests.push(request);
+
+            str.SocketId = request.socket_id,
+                str.RequestGuid = request.request_guid
+
+
+
+            //address of api gateway running on your localhost at port 4000  (iot-microservice 4001)
+
+            fetch(postUrl, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(str)
+            })
+
+                .then(response => response.json())
+                .then(json => console.log(json))
+        }
+
+    </script>
+
+
+</body>
+
+</html>

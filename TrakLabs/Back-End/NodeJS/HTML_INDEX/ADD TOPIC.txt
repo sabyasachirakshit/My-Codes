@@ -1,0 +1,163 @@
+    {
+      TopicName: "STAGES_ADD",
+      Publishers: ["API_GATEWAY_SERVICE"],
+      Method: "POST",
+      Subscribers: [
+        {
+          Service: "IOT_SERVICE",
+          Function: "InsertSTAGES",
+          OnSuccessTopicsToPush: ["STAGES_ADDED"],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_ADD-IOT_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_ADD-IOT_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_ADD-IOT_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_ADD:5d630319-15d8-475d-a2ae-89e200ac0bc6",
+        },
+      ],
+      TopicArn: "arn:aws:sns:us-east-2:915966410640:STAGES_ADD",
+    },
+    {
+      TopicName: "STAGES_UPDATE",
+      Publishers: ["API_GATEWAY_SERVICE"],
+      Method: "PUT",
+      Subscribers: [
+        {
+          Service: "IOT_SERVICE",
+          Function: "UpdateSTAGES",
+          OnSuccessTopicsToPush: ["STAGES_UPDATED"],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_UPDATE-IOT_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_UPDATE-IOT_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_UPDATE-IOT_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_UPDATE:07ec2b25-8106-4115-a953-f5609baa6824",
+        },
+      ],
+      TopicArn: "arn:aws:sns:us-east-2:915966410640:STAGES_UPDATE",
+    },
+    {
+      TopicName: "STAGES_DELETE",
+      Publishers: ["API_GATEWAY_SERVICE"],
+      Method: "DELETE",
+      Subscribers: [
+        {
+          Service: "IOT_SERVICE",
+          Function: "DeleteSTAGES",
+          OnSuccessTopicsToPush: ["STAGES_DELETED"],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_DELETE-IOT_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_DELETE-IOT_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_DELETE-IOT_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_DELETE:6587f28d-e344-4ec4-8c09-d07118dc202c",
+        },
+      ],
+      TopicArn: "arn:aws:sns:us-east-2:915966410640:STAGES_DELETE",
+    },
+	{
+      TopicName: "STAGES_ADDED",
+      Publishers: ["IOT_SERVICE"],
+      Method: "UNKNOWN",
+      Subscribers: [
+        {
+          Service: "IOT_SERVICE",
+          Function: "SendSTAGESAddedNotificationToAdmin",
+          OnSuccessTopicsToPush: ["NOTIFICATION_ADDED"],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_ADDED-IOT_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_ADDED-IOT_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_ADDED-IOT_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_ADDED:9cd89752-ede9-4669-81d8-4a527e2a2dad",
+        },
+        {
+          Service: "API_GATEWAY_SERVICE",
+          Function: "FunctionNameToAcknowledgeUIHandle",
+          OnSuccessTopicsToPush: [],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_ADDED-API_GATEWAY_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_ADDED-API_GATEWAY_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_ADDED-API_GATEWAY_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_ADDED:2efcfd8b-e14e-4142-8edb-b10a7e25b386",
+        }],
+      TopicArn: "arn:aws:sns:us-east-2:915966410640:STAGES_ADDED",
+    },
+    {
+      TopicName: "STAGES_UPDATED",
+      Publishers: ["IOT_SERVICE"],
+      Method: "UNKNOWN",
+      Subscribers: [
+        {
+          Service: "IOT_SERVICE",
+          Function: "SendSTAGESUpdatedNotificationToAdmin",
+          OnSuccessTopicsToPush: ["NOTIFICATION_ADDED"],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_UPDATED-IOT_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_UPDATED-IOT_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_UPDATED-IOT_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_UPDATED:f0c3fb25-7651-424a-b0ad-c39203345142",
+        },
+        {
+          Service: "API_GATEWAY_SERVICE",
+          Function: "FunctionNameToAcknowledgeUIHandle",
+          OnSuccessTopicsToPush: [],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_UPDATED-API_GATEWAY_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_UPDATED-API_GATEWAY_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_UPDATED-API_GATEWAY_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_UPDATED:4c03afaf-0c3c-40fb-a5d6-e070d42d06c3",
+        }],
+      TopicArn: "arn:aws:sns:us-east-2:915966410640:STAGES_UPDATED",
+    },
+
+    {
+      TopicName: "STAGES_DELETED",
+      Publishers: ["IOT_SERVICE"],
+      Method: "UNKNOWN",
+      Subscribers: [
+        {
+          Service: "IOT_SERVICE",
+          Function: "SendSTAGESDeletedNotificationToAdmin",
+          OnSuccessTopicsToPush: ["NOTIFICATION_ADDED"],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_DELETED-IOT_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_DELETED-IOT_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_DELETED-IOT_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_DELETED:b2df1f21-34ef-42ab-86d3-57aa5db96a59",
+        },
+        {
+          Service: "API_GATEWAY_SERVICE",
+          Function: "FunctionNameToAcknowledgeUIHandle",
+          OnSuccessTopicsToPush: [],
+          OnFailureTopicsToPush: ["ERROR_RECEIVER"],
+          QueueName: "STAGES_DELETED-API_GATEWAY_SERVICE",
+          QueueUrl:
+            "https://sqs.us-east-2.amazonaws.com/915966410640/STAGES_DELETED-API_GATEWAY_SERVICE",
+          QueueArn:
+            "arn:aws:sqs:us-east-2:915966410640:STAGES_DELETED-API_GATEWAY_SERVICE",
+          SubscriptionArn:
+            "arn:aws:sns:us-east-2:915966410640:STAGES_DELETED:3f56c21f-95ee-48a5-8941-1b4c81d21b75",
+        }],
+      TopicArn: "arn:aws:sns:us-east-2:915966410640:STAGES_DELETED"
+    },

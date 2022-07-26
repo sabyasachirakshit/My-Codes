@@ -1,0 +1,44 @@
+{
+    
+    "iotDeviceName": "string"
+
+   
+    "iotDeviceDetails": "string"
+
+    
+    "tenantId":2;
+
+    
+    "subscriptionStartDate":Date;
+
+    
+    "subscriptionEndDate":Date;
+
+    
+    "isActive": true;
+
+    "sensors": Sensors[];
+
+
+
+
+}
+{
+    
+  
+    "sensorDataValue": 2;
+  
+    "sensorAdditionalData": "string";
+  
+    "isOptimum": 5;
+  
+    "referenceValue": 6;
+
+   
+    "isCritical": true;
+  
+    "recordingDateTime": Date;
+   
+    "iotDeviceSensorId": 8;
+    
+}
