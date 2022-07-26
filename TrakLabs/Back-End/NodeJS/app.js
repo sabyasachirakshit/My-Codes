@@ -81,7 +81,7 @@ function middleware1(req, res, next) {
 }
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port ${port}. Visit -> http://127.0.0.1:${port}`);
 });
 
 //GET/PUT/POST/DELETE  & MIDDLEWARE, MANIPULATION OF REQ & RES  //USE A HTML PAGE TO CONNECT TO NODEJS USING SOCKETS (extra exercise) //print the time after every 5 seconds (use delay/settimeput and send the response back to the socket client) //socket.io
