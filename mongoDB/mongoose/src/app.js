@@ -106,11 +106,48 @@ const getDocs = async () => {
     }).select({ name: 1, _id: 0 });
     */
 
+    /* Counting and Sorting 
+    const result = await Data.find().count();
+    const result = await Data.find()
+      .sort({name:-1}) 1 or -1 represents ascending or descending respectively
+      .select({ name: 1, _id: 0 });
     console.log(result);
+    */
+
     console.log(typeof result);
   } catch (err) {
     console.log(err);
   }
 };
 
-getDocs();
+// getDocs();
+
+// Updating documents
+
+const updateDocs = async (objectId) => {
+  try {
+    const res = await Data.findByIdAndUpdate(
+      { _id: objectId },
+      { $set: { ctype: "Frontend & Backend" } },
+      { new: true }
+    );
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// updateDocs("62f5e442ec3cccc6f8c7a89e");
+
+// Deleting Documents
+
+const deleteDocs = async () => {
+  try {
+    const res = await Data.deleteOne({ name: "Node JS" });
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+deleteDocs();
