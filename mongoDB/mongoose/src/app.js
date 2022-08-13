@@ -70,14 +70,42 @@ const createDocs = async () => {
     console.log(err);
   }
 };
-createDocs();
+// createDocs();
 
 //Reading Documents from collection
 
 const getDocs = async () => {
   try {
     const result = await Data.find();
+    // const result = await Data.find({ ctype: "Backend" }).select({ name: 1, _id: 0 });
     //   const result = await Data.find({active:true}).select({name:1}).limit(1);
+
+    /* Running Queries
+    const result = await Data.find({rating:{$gt:80}});
+    const result = await Data.find({ ctype: { $in: ["Backend","Backend Storage"] } }).select({
+      name: 1,
+      _id: 0,
+    });
+    const result = await Data.find({
+      ctype: { $nin: ["Backend", "Backend Storage"] },
+    }).select({
+      name: 1,
+      _id: 0,
+    });
+    */
+
+    /* Running Logical Operators
+    const result = await Data.find({$or:[{ctype:"Backend"},{author:"SR"}]}).select({name:1,_id:0});
+    const result = await Data.find({$and: [{ ctype: "Backend" }, { author: "SR" }],}).select({ name: 1, _id: 0 });
+    const result = await Data.find({ author: { $not: /SR/ } }).select({
+      name: 1,
+      _id: 0,
+    });
+    const result = await Data.find({
+      $nor: [{ ctype: "Frontend" }, { author: "SR" }],
+    }).select({ name: 1, _id: 0 });
+    */
+
     console.log(result);
     console.log(typeof result);
   } catch (err) {
