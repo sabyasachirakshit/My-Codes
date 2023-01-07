@@ -1,0 +1,8 @@
+C:\My Codes\C#\Hello\Hello\bin\Debug\Hello.exe.config
+C:\My Codes\C#\Hello\Hello\bin\Debug\Hello.exe
+C:\My Codes\C#\Hello\Hello\bin\Debug\Hello.pdb
+C:\My Codes\C#\Hello\Hello\obj\Debug\Hello.csproj.AssemblyReference.cache
+C:\My Codes\C#\Hello\Hello\obj\Debug\Hello.csproj.SuggestedBindingRedirects.cache
+C:\My Codes\C#\Hello\Hello\obj\Debug\Hello.csproj.CoreCompileInputs.cache
+C:\My Codes\C#\Hello\Hello\obj\Debug\Hello.exe
+C:\My Codes\C#\Hello\Hello\obj\Debug\Hello.pdb
