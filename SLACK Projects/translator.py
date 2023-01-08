@@ -11,7 +11,7 @@ class TranslatorClass(object):
         self.Trans = Translator(service_urls=["translate.google.com"])
 
     def __repr__(self):
-        translated = self.Trans.translate(self.word,dest= self.lang).text
+        translated = self.Trans.translate(self.word,dest=self.lang).text
         data = [
         ['Language:',"Word/sentence"],
         ['English', self.word],
