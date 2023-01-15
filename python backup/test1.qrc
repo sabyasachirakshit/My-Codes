@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="newPrefix">
-    <file>ProjectRail/pict.png</file>
-    <file>trains.png</file>
-  </qresource>
-</RCC>

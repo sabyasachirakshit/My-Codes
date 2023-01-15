@@ -1,1 +1,0 @@
-alert("Hello Everyone! This is JavaScript from external JS file.");
