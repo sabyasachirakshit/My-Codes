@@ -8,28 +8,33 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //create a function to update the timer every second
-var seconds = 0;
-var minutes = 0;
-var hours = 0;
-var days = 0;
+
+var currentTime = {
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+};
 app.get("/timer", (req, res) => {
-  function updateTimer() {
-    seconds++;
-    if (seconds >= 60) {
-      seconds = 0;
-      minutes++;
-      if (minutes >= 60) {
-        minutes = 0;
-        hours++;
-        if (hours >= 24) {
-          hours = 0;
-          days++;
+  setInterval(() => {
+    currentTime.seconds++;
+    if (currentTime.seconds >= 60) {
+      currentTime.seconds = 0;
+      currentTime.minutes++;
+      if (currentTime.minutes >= 60) {
+        currentTime.minutes = 0;
+        currentTime.hours++;
+        if (currentTime.hours >= 24) {
+          currentTime.hours = 0;
+          currentTime.days++;
         }
       }
     }
-    res.json({ days, hours, minutes, seconds });
-  }
-  setInterval(updateTimer, 1000);
+  }, 1000);
+  console.log(
+    `currenttime.minutes: ${currentTime.minutes}, currenttime.seconds: ${currentTime.seconds}`
+  );
+  res.json(currentTime);
 });
 
 const port = process.env.PORT || 8000;
