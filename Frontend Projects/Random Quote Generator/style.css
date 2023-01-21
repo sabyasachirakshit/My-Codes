@@ -15,8 +15,19 @@ main {
   height: 90vh;
 }
 
+#quotes-screen {
+  border-color: #000;
+  color: #fff;
+  border-radius: 2px;
+  background-color: #000;
+  position: absolute;
+  right: 34%;
+  top: 15%;
+  width: 31%;
+}
+
 #generate-button {
-  position: relative;
+  position: absolute;
   top: 50%;
   border-radius: 5px;
   left: 50%;
@@ -34,6 +45,7 @@ main {
   left: 50%;
   transform: translate(-50%, 100%);
   color: white;
+  cursor: pointer;
   padding: 14px 20px;
   text-shadow: 1px 1px 1px #000;
   background-color: #3e8e41; /* Darker green */
