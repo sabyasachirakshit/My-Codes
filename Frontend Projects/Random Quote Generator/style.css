@@ -7,6 +7,36 @@ header {
   background-color: black;
   width: 100%;
   text-align: center;
+  height: 5vh;
+}
+
+main {
+  background-color: rgb(57, 201, 153);
+  height: 90vh;
+}
+
+#generate-button {
+  position: relative;
+  top: 50%;
+  border-radius: 5px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  text-shadow: 1px 1px 1px #000;
+}
+
+#generate-button:hover {
+  position: relative;
+  top: 50%;
+  border-radius: 5px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  color: white;
+  padding: 14px 20px;
+  text-shadow: 1px 1px 1px #000;
+  background-color: #3e8e41; /* Darker green */
 }
 
 footer {
@@ -15,6 +45,7 @@ footer {
   text-align: center;
   position: fixed;
   bottom: 0;
+  height: 5vh;
 }
 
 #glow-text {
