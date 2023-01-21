@@ -4,6 +4,22 @@ body {
 }
 
 header {
-  background-color: aqua;
+  background-color: black;
   width: 100%;
+  text-align: center;
+}
+
+footer {
+  background-color: black;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+
+#glow-text {
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
 }
