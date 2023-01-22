@@ -20,6 +20,10 @@ app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "login.html"));
 });
 
+app.get("/search", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "search.html"));
+});
+
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
