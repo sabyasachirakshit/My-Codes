@@ -12,6 +12,16 @@ app.use(
   })
 );
 
+// Authentication middleware function
+function authenticate(req, res, next) {
+  let user = false;
+  if (user === true) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "index.html"));
 });
@@ -20,7 +30,7 @@ app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "login.html"));
 });
 
-app.get("/search", (req, res) => {
+app.get("/search", authenticate, (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "search.html"));
 });
 
