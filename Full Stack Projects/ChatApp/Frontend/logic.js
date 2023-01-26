@@ -12,6 +12,13 @@ socket.on("chat message", (msg) => {
   updateMessageDisplay(msg);
 });
 
+socket.on("past messages", (msgs) => {
+  //loop through the messages and display them
+  for (let msg of msgs) {
+    updateMessageDisplay(msg);
+  }
+});
+
 function sendMessage() {
   if (!messageInput.value) {
     return;
