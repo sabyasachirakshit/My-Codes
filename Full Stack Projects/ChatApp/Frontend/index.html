@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="message-display" id="message-display"></div>
+        <form id="message-form">
+            <label for="username-input">Username:</label>
+            <input type="text" id="username-input">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="logic.js"></script>
+</body>
+
+</html>
