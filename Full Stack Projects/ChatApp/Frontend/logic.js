@@ -16,14 +16,18 @@ function sendMessage() {
   if (!messageInput.value) {
     return;
   }
+  const username = document.getElementById("username-input").value;
   // Send the message to the server
-  socket.emit("chat message", messageInput.value);
+  socket.emit("chat message", {
+    message: messageInput.value,
+    username: username,
+  });
   //clear the input
   messageInput.value = "";
 }
 
 function updateMessageDisplay(message) {
   let messageEl = document.createElement("p");
-  messageEl.innerText = message;
+  messageEl.innerText = `${message.username}: ${message.message}`;
   messageDisplay.appendChild(messageEl);
 }
