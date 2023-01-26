@@ -1,10 +1,15 @@
 const messageInput = document.getElementById("message-input");
 const messageForm = document.getElementById("message-form");
 const messageDisplay = document.getElementById("message-display");
+const socket = io();
 
 messageForm.addEventListener("submit", (event) => {
   event.preventDefault();
   sendMessage();
+});
+
+socket.on("chat message", (msg) => {
+  updateMessageDisplay(msg);
 });
 
 function sendMessage() {
@@ -12,29 +17,13 @@ function sendMessage() {
     return;
   }
   // Send the message to the server
-  fetch("/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      message: messageInput.value,
-    }),
-  })
-    .then((response) => response.json())
-    .then((messages) => {
-      //clear the input
-      messageInput.value = "";
-      //update the message display
-      updateMessageDisplay(messages);
-    });
+  socket.emit("chat message", messageInput.value);
+  //clear the input
+  messageInput.value = "";
 }
 
-function updateMessageDisplay(messages) {
-  messageDisplay.innerHTML = "";
-  for (let message of messages) {
-    let messageEl = document.createElement("p");
-    messageEl.innerText = message;
-    messageDisplay.appendChild(messageEl);
-  }
+function updateMessageDisplay(message) {
+  let messageEl = document.createElement("p");
+  messageEl.innerText = message;
+  messageDisplay.appendChild(messageEl);
 }

@@ -1,10 +1,8 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const path = require("path");
-
-//In-memory storage for messages
-let messages = [];
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 
 app.use(express.static(path.join(__dirname, "../frontend")));
 
@@ -12,14 +10,18 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
-app.post("/messages", express.json(), (req, res) => {
-  //Add the new message to the storage
-  messages.push(req.body.message);
+io.on("connection", (socket) => {
+  console.log("a user connected");
 
-  //Send the updated messages array as a response
-  res.json(messages);
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg);
+  });
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+server.listen(3000, () => {
+  console.log("listening on *:3000");
 });
