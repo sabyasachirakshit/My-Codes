@@ -35,6 +35,33 @@ function authenticate(req, res, next) {
   }
 }
 
+app.post("/signup", (req, res) => {
+  let real_name = req.body.realname;
+  let phone_number = req.body.phonenumber;
+  phone_number = Number(phone_number);
+  let user_name = req.body.username;
+  let user_password = req.body.password;
+  if (user_database[user_name]) {
+    res.send({
+      messsage:
+        "username already exists! Click here to login : http://localhost:3000",
+    });
+  } else if (phone_number_db[phone_number]) {
+    res.send({
+      messsage:
+        "phone number already exists! Click here to login : http://localhost:3000",
+    });
+  } else {
+    phone_number_db[phone_number] = real_name;
+    user_database[user_name] = user_password;
+    authenticated = true;
+    res.send({
+      message:
+        "account created successfully! Click here to login : http://localhost:3000",
+    });
+  }
+});
+
 app.post("/check_phone_number", (req, res) => {
   if (authenticated === true) {
     if (phone_number_db[req.body.number]) {
