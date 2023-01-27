@@ -8,6 +8,7 @@ In this repository, I have saved all codes which I have done from 2020. Mostly I
 
 - In this repository, you may find codes which are common for a beginner programmer to do.
 - This repository contains self made projects, internship projects.
+- I have added from very basic codes to advanced codes which will be helpful to everyone.
 
 Always Remember:
 
