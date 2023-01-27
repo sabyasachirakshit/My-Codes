@@ -7,7 +7,7 @@ In this repository, I have saved all codes which I have done from 2020. Mostly I
 ## Features
 
 - In this repository, you may find codes which are common for a beginner programmer to do.
-- This repository contains self made projects, intenrship projects.
+- This repository contains self made projects, internship projects.
 
 Always Remember:
 
