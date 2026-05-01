@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snakes & Ladders</title>
+  <link rel="stylesheet" href="css/board.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <header class="game-header">
+      <h1 class="game-title">🐍 Snakes &amp; Ladders</h1>
+      <p class="game-subtitle">Hybrid Edition</p>
+    </header>
+
+    <main class="game-area">
+
+      <!-- ── Setup screen ──────────────────────────────────────── -->
+      <section class="setup-screen" id="setup-screen">
+        <div class="setup-card">
+          <h2 class="setup-title">Configure Players</h2>
+          <p class="setup-hint">Choose a type for each player.<br>🟢 Green climbs ladders · 🟠 Orange climbs snakes</p>
+          <div id="player-config-list" class="player-config-list"></div>
+          <div class="setup-actions">
+            <button id="add-player-btn" class="btn btn--ghost">+ Add Player</button>
+            <button id="start-game-btn" class="btn btn--primary">Start Game →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Game layout: board + side panel ──────────────────── -->
+      <div class="game-layout" id="game-layout" hidden>
+
+        <div class="board-wrapper">
+          <div class="board" id="board">
+            <!-- Tiles injected by board-render.js -->
+          </div>
+        </div>
+
+        <aside class="game-panel">
+          <div id="players-list" class="players-list"></div>
+
+          <div class="dice-area">
+            <div class="dice" id="dice">🎲</div>
+            <button id="roll-btn" class="roll-btn">Roll Dice</button>
+          </div>
+
+          <p class="status-msg" id="status-msg">Setting up…</p>
+
+          <div class="game-log" id="game-log"></div>
+        </aside>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Config (no deps) -->
+  <script src="js/config.js"></script>
+  <!-- Game engine (pure logic, no DOM) -->
+  <script src="js/Player.js"></script>
+  <script src="js/Dice.js"></script>
+  <script src="js/Board.js"></script>
+  <script src="js/GameState.js"></script>
+  <script src="js/TurnManager.js"></script>
+  <!-- Rendering layer -->
+  <script src="js/board-render.js"></script>
+  <script src="js/overlay-render.js"></script>
+  <script src="js/Renderer.js"></script>
+  <script src="js/EventHandler.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* ─── Board Shell ─────────────────────────────────────────────── */
+.board-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(8px, 2vw, 24px);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+
+  width: min(90vw, 90vh, 600px);
+  height: min(90vw, 90vh, 600px);
+
+  position: relative;       /* SVG overlay anchors here */
+  border: 3px solid #1a1a2e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  background: #1a1a2e;
+  gap: 2px;
+}
+
+/* ─── SVG Overlay ────────────────────────────────── */
+#board-overlay {
+  position: absolute;
+  inset: 0;                  /* covers the board content area exactly */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;      /* clicks/taps pass through to tiles */
+  z-index: 2;
+}
+
+/* ─── Individual Tile ─────────────────────────────────────────── */
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  padding: 3px 4px;
+  background: #f0e6d3;
+  cursor: default;
+  transition: background 0.15s ease;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Alternating tile colors — checkerboard feel */
+.tile:nth-child(odd) {
+  background: #f0e6d3;
+}
+.tile:nth-child(even) {
+  background: #ddd0bb;
+}
+
+.tile:hover {
+  background: #c9b99a;
+  z-index: 2;
+}
+
+/* ─── Tile Number Label ───────────────────────────────────────── */
+.tile-number {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: clamp(7px, 1.4vw, 13px);
+  font-weight: 700;
+  color: #3d2b1f;
+  line-height: 1;
+  user-select: none;
+  z-index: 1;
+}
+
+/* ─── Special Tile: Start & End ───────────────────────────────── */
+.tile[data-tile="1"] {
+  background: #d4edda;
+  border: 2px solid #28a745;
+}
+.tile[data-tile="1"] .tile-number {
+  color: #155724;
+}
+
+.tile[data-tile="100"] {
+  background: #ffd700;
+  border: 2px solid #b8860b;
+}
+.tile[data-tile="100"] .tile-number {
+  color: #3d2b00;
+}
+
+/* ─── Snake Tile Placeholder ──────────────────────────────────── */
+.tile.has-snake {
+  background: #ffe5e5;
+}
+.tile.has-snake::after {
+  content: '🐍';
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: clamp(8px, 1.6vw, 16px);
+  line-height: 1;
+  opacity: 0.85;
+}
+
+/* ─── Ladder Tile Placeholder ─────────────────────────────────── */
+.tile.has-ladder {
+  background: #e5f0ff;
+}
+.tile.has-ladder::after {
+  content: '🪜';
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: clamp(8px, 1.6vw, 16px);
+  line-height: 1;
+  opacity: 0.85;
+}
+
+/* ─── Row Direction Indicators (zig-zag arrows) ───────────────── */
+.tile.row-start::before {
+  content: attr(data-arrow);
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  font-size: clamp(5px, 0.9vw, 9px);
+  color: #9e8a7a;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ─── Player Token Slots (placeholder) ───────────────────────── */
+.tile-tokens {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  max-width: 60%;
+}
+
+.token {
+  width: clamp(8px, 1.8vw, 18px);
+  height: clamp(8px, 1.8vw, 18px);
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+
+.token.green  { background: #28a745; }
+.token.orange { background: #fd7e14; }
+
+/* ─── Responsive Breakpoints ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .board {
+    gap: 1px;
+  }
+  .tile {
+    padding: 1px 2px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .board {
+    width: min(70vmin, 620px);
+    height: min(70vmin, 620px);
+  }
+}
+
+/* ─── Board glow: tracks active player's colour ───────────────── */
+.board.glow--green {
+  box-shadow: 0 0 0 4px rgba(40,167,69,0.6), 0 8px 32px rgba(0,0,0,0.35);
+  transition: box-shadow 0.4s ease;
+}
+.board.glow--orange {
+  box-shadow: 0 0 0 4px rgba(253,126,20,0.6), 0 8px 32px rgba(0,0,0,0.35);
+  transition: box-shadow 0.4s ease;
+}
+
+/* ─── Flying token (animated across board during move) ────────── */
+.token--flying {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              top  0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Token land bounce ───────────────────────────────────────── */
+@keyframes token-land {
+  0%   { transform: scale(1.5); }
+  60%  { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+.token--land {
+  animation: token-land 0.28s ease-out;
+}
+
+/* ─── Tile flash when a snake/ladder activates ────────────────── */
+@keyframes tile-flash {
+  0%   { filter: brightness(1) saturate(1); }
+  35%  { filter: brightness(2) saturate(2); }
+  100% { filter: brightness(1) saturate(1); }
+}
+.tile--effect-flash {
+  animation: tile-flash 0.45s ease-out;
+  z-index: 1;
+}
